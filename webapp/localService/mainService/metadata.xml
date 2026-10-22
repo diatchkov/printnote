@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZC_TMP_InboundDeliveryType">
+                <Key>
+                    <PropertyRef Name="InboundDelivery"/>
+                </Key>
+                <Property Name="InboundDelivery" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SDDocumentCategory" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DeliveryDocumentType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreationDate" Type="Edm.Date"/>
+                <Property Name="CreationTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="LastChangeDate" Type="Edm.Date"/>
+                <Property Name="GoodsReceivingPoint" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CompleteDeliveryIsDefined" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DeliveryPriority" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DeliveryDocumentBySupplier" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="DeliveryIsInPlant" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="DeliveryVersion" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DocumentDate" Type="Edm.Date"/>
+                <Property Name="ExternalIdentificationType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="GoodsMovementSlipNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HeaderGrossWeight" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3"/>
+                <Property Name="HeaderNetWeight" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3"/>
+                <Property Name="HeaderVolume" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3"/>
+                <Property Name="HeaderVolumeUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="HeaderWeightUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="IsExportDelivery" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="MeansOfTransportRefMaterial" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="OrderCombinationIsAllowed" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="ReceivingPlant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="SpecialProcessingCode" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Warehouse" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="WarehouseGate" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="WarehouseStagingArea" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="TotalNumberOfPackage" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="LoadingDate" Type="Edm.Date"/>
+                <Property Name="LoadingTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="BillOfLading" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="HandlingUnitInStock" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="DeliveryDate" Type="Edm.Date"/>
+                <Property Name="DeliveryTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ShippingCondition" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ShippingType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ShipmentBlockReason" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="TransportationPlanningDate" Type="Edm.Date"/>
+                <Property Name="TransportationPlanningTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="RouteSchedule" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PlannedGoodsMovementDate" Type="Edm.Date"/>
+                <Property Name="PlannedGoodsMovementTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ActualGoodsMovementDate" Type="Edm.Date"/>
+                <Property Name="ActualGoodsMovementTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="IncotermsClassification" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="IncotermsTransferLocation" Type="Edm.String" Nullable="false" MaxLength="28"/>
+                <Property Name="ExternalTransportSystem" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="TransportationGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MeansOfTransport" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="MeansOfTransportType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProofOfDeliveryDate" Type="Edm.Date"/>
+                <Property Name="ProofOfDeliveryTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="FactoryCalendarByCustomer" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ShippingLocationTimeZone" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="ReceivingLocationTimeZone" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="IntercompanyBillingDate" Type="Edm.Date"/>
+                <Property Name="BillingDocumentDate" Type="Edm.Date"/>
+                <Property Name="HeaderBillingBlockReason" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="InternalFinancialDocument" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PaymentGuaranteeProcedure" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="DepreciationInPercent" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="CustomerGroup" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="StatisticsCurrency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="OverallIntcoBillingStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallDeliveryProcessStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="TotalBlockStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallDelivConfStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="TransportationPlanningStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallPutawayConfStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallPutawayStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallPackingStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallWarehouseActivityStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="DistrStatusByDecentralizedWrhs" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallGoodsMovementStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallDelivReltdBillgStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OverallProofOfDeliveryStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HdrGeneralIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HeaderDelivIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HeaderPutawayIncompltnStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HeaderPackingIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HdrGoodsMvtIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HeaderBillgIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OvrlItmDelivIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OvrlItmGdsMvtIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OvrlItmGeneralIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OvrlItmPackingIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OvrlItmPutawayIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="TotalCreditCheckStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.EntityControl"/>
+                <Property Name="__FieldControl" Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryControl"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZC_TMP_InboundDeliveryControl">
+                <Property Name="ActualGoodsMovementDate" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="ActualGoodsMovementTime" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="DeliveryDate" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="DeliveryTime" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="ShippingType" Type="Edm.Byte" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZC_TMP_InboundDeliveryOperationControl">
+                <Property Name="PostGoodsMovement" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="printNote" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZD_TMP_NOTE_PRINT">
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="MimeCont" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="128"/>
+            </ComplexType>
+            <ComplexType Name="D_InbDelivCrteFrmPurgDocItemP">
+                <Property Name="ReferenceSDDocument" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ReferenceSDDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+            </ComplexType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="printNote" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZD_TMP_NOTE_PRINT" Nullable="false"/>
+            </Action>
+            <Action Name="PostGoodsMovement" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryType" Nullable="false"/>
+            </Action>
+            <Action Name="CreateDlvFrmPurchasingDocument" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryType)" Nullable="false"/>
+                <Parameter Name="DeliveryDate" Type="Edm.Date" Nullable="true"/>
+                <Parameter Name="_ReferencePurgDocumentItem" Type="Collection(com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.D_InbDelivCrteFrmPurgDocItemP)" Nullable="false"/>
+                <Parameter Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Parameter Name="DeliveryTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Parameter Name="DeliveryDocumentBySupplier" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Parameter Name="MeansOfTransportType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="MeansOfTransport" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <ReturnType Type="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryType" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZC_TMP_InboundDelivery" EntityType="com.sap.gateway.srvd.ztmp_ui_inbounddelivery.v0001.ZC_TMP_InboundDeliveryType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.D_InbDelivCrteFrmPurgDocItemP/ReferenceSDDocument">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Reference Document"/>
+                <Annotation Term="SAP__common.Heading" String="Ref. Doc."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Number of Reference Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/InboundDelivery">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.SemanticObject" String="InboundDelivery"/>
+                <Annotation Term="SAP__common.Label" String="Delivery"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/SDDocumentCategory">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="SD Document Category"/>
+                <Annotation Term="SAP__common.Heading" String="Doc.Cat."/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryDocumentType">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Type"/>
+                <Annotation Term="SAP__common.Heading" String="DlvTy"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/CreatedByUser">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of Person Responsible for Creating the Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/CreationDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Record Creation Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/CreationTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Entry time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/LastChangedByUser">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Changed By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of Person Who Changed Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/LastChangeDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Changed On"/>
+                <Annotation Term="SAP__common.Heading" String="Chngd On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Last Changed On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/GoodsReceivingPoint">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Shipping Point"/>
+                <Annotation Term="SAP__common.Heading" String="ShPt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Shipping Point / Receiving Point"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/CompleteDeliveryIsDefined">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Complete Delivery"/>
+                <Annotation Term="SAP__common.Heading" String="CDl"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Complete Delivery Defined for Each Sales Order"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryPriority">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Priority"/>
+                <Annotation Term="SAP__common.Heading" String="DPrio"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryBlockReason">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Block"/>
+                <Annotation Term="SAP__common.Heading" String="DlBl"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Block (Document Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryDocumentBySupplier">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="External Delivery ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="External Identification of Delivery Note"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryIsInPlant">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="In Plant"/>
+                <Annotation Term="SAP__common.Heading" String="In Plnt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery has Status 'In Plant'"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryVersion">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DocumentDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Document Date"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Date in Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ExternalIdentificationType">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Type of Ext. Ident."/>
+                <Annotation Term="SAP__common.Heading" String="Type of Ext. Identific."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Type of External Identification"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/GoodsMovementSlipNumber">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="GR/GI Slip No."/>
+                <Annotation Term="SAP__common.Heading" String="GR/GI Sl"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Goods Receipt/Issue Slip Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderGrossWeight">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__measures.Unit" Path="HeaderWeightUnit"/>
+                <Annotation Term="SAP__common.Label" String="Total Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderNetWeight">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__measures.Unit" Path="HeaderWeightUnit"/>
+                <Annotation Term="SAP__common.Label" String="Net Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderVolume">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__measures.Unit" Path="HeaderVolumeUnit"/>
+                <Annotation Term="SAP__common.Label" String="Volume"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderVolumeUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Volume Unit"/>
+                <Annotation Term="SAP__common.Heading" String="VUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderWeightUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/IsExportDelivery">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Export"/>
+                <Annotation Term="SAP__common.Heading" String="ExpID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Export indicator"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/MeansOfTransportRefMaterial">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Means of Transport"/>
+                <Annotation Term="SAP__common.Heading" String="MoT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OrderCombinationIsAllowed">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Order Combination"/>
+                <Annotation Term="SAP__common.Heading" String="OrdCm"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order Combination Indicator"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ReceivingPlant">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Receiving Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plant"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Receiving Plant for Deliveries"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/SpecialProcessingCode">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Spec.Processing"/>
+                <Annotation Term="SAP__common.Heading" String="SpPI"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Special Processing Indicator"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/Supplier">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Supplier"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/Warehouse">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Warehouse Number"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number / Warehouse Complex"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/WarehouseGate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Door for Whse No."/>
+                <Annotation Term="SAP__common.Heading" String="Door"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Door for Warehouse Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/WarehouseStagingArea">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Staging Area"/>
+                <Annotation Term="SAP__common.Heading" String="StgingArea"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Staging Area for Warehouse Complex"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TotalNumberOfPackage">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Number of Packages"/>
+                <Annotation Term="SAP__common.Heading" String="No.Pk"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Total Number of Packages in Delivery"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/LoadingDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Loading Date"/>
+                <Annotation Term="SAP__common.Heading" String="Loadg Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/LoadingTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Loading Time"/>
+                <Annotation Term="SAP__common.Heading" String="Loadg Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Time (Local Time Relating to a Shipping Point)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/BillOfLading">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Bill of Lading"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HandlingUnitInStock">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="HU Placed in Stock"/>
+                <Annotation Term="SAP__common.Heading" String="H"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Handling Unit Placed in Stock"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryDate">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/DeliveryDate"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Date"/>
+                <Annotation Term="SAP__common.Heading" String="Deliv.Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DeliveryTime">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/DeliveryTime"/>
+                <Annotation Term="SAP__common.Label" String="Time of delivery"/>
+                <Annotation Term="SAP__common.Heading" String="At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ShippingCondition">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Shipping Conditions"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ShippingType">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/ShippingType"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Shipping Type"/>
+                <Annotation Term="SAP__common.Heading" String="ST"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ShipmentBlockReason">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="ShipmentBlockReason"/>
+                <Annotation Term="SAP__common.Heading" String="ShBl"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Shipment Blocking Reason"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TransportationPlanningDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Transptn Plang Date"/>
+                <Annotation Term="SAP__common.Heading" String="TrpPlanDt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Transportation Planning Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TransportationPlanningTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Transp. Plan. Time"/>
+                <Annotation Term="SAP__common.Heading" String="TP Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Transp. Planning Time (Local, Relating to a Shipping Point)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/RouteSchedule">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Route Schedule"/>
+                <Annotation Term="SAP__common.Heading" String="RSch"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/PlannedGoodsMovementDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Pland Gds Mvmnt Date"/>
+                <Annotation Term="SAP__common.Heading" String="Pl.GI Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Planned Goods Movement Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/PlannedGoodsMovementTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Pland Gds Mvmnt Time"/>
+                <Annotation Term="SAP__common.Heading" String="PlnGM Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Planned Goods Movement Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ActualGoodsMovementDate">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/ActualGoodsMovementDate"/>
+                <Annotation Term="SAP__common.Label" String="Act. Gds Mvmnt Date"/>
+                <Annotation Term="SAP__common.Heading" String="Ac.GI Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual Goods Movement Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ActualGoodsMovementTime">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/ActualGoodsMovementTime"/>
+                <Annotation Term="SAP__common.Label" String="Act. Gds Mvmnt Time"/>
+                <Annotation Term="SAP__common.Heading" String="ActGM Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual Goods Movement Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/IncotermsClassification">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Incoterms"/>
+                <Annotation Term="SAP__common.Heading" String="IncoT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Incoterms (Part 1)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/IncotermsTransferLocation">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Incoterms (Part 2)"/>
+                <Annotation Term="SAP__common.Heading" String="Inco. 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ExternalTransportSystem">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="ID Transport System"/>
+                <Annotation Term="SAP__common.Heading" String="IDTrS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="ID for External Transport System"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TransportationGroup">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Transportation Group"/>
+                <Annotation Term="SAP__common.Heading" String="TGroup"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/MeansOfTransport">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Means of Trans. ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Means of Transport ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/MeansOfTransportType">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Means-of-Trans. Type"/>
+                <Annotation Term="SAP__common.Heading" String="TrpT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Means-of-Transport Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ProofOfDeliveryDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="POD Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date (Proof of Delivery)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ProofOfDeliveryTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Confirm. Time"/>
+                <Annotation Term="SAP__common.Heading" String="Conf. Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Confirmation Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/FactoryCalendarByCustomer">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Factory Calendar"/>
+                <Annotation Term="SAP__common.Heading" String="FacCal"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Factory Calendar"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ShippingLocationTimeZone">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Del. loc. time zone"/>
+                <Annotation Term="SAP__common.Heading" String="Del. loc."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time zone of delivering location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/ReceivingLocationTimeZone">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Rec. loc. time zone"/>
+                <Annotation Term="SAP__common.Heading" String="Rec. tzone"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time zone of recipient location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/IntercompanyBillingDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Billing Date(Intco)"/>
+                <Annotation Term="SAP__common.Heading" String="Bill.Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Billing Date for Intercompany Billing"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/BillingDocumentDate">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Billing Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderBillingBlockReason">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Billing Block"/>
+                <Annotation Term="SAP__common.Heading" String="BB"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Billing Block in SD Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/InternalFinancialDocument">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Financial Doc. No."/>
+                <Annotation Term="SAP__common.Heading" String="FD No."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Financial doc. processing: Internal financial doc. number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/PaymentGuaranteeProcedure">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Paymt Guarant. Proc."/>
+                <Annotation Term="SAP__common.Heading" String="PaymentGuar"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Guarantee Procedure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DepreciationInPercent">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Depreciation %"/>
+                <Annotation Term="SAP__common.Heading" String="Depreciation percentage"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Depreciation percentage for financial document processing"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/CustomerGroup">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Customer Group"/>
+                <Annotation Term="SAP__common.Heading" String="CGrp"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TransactionCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Document Currency"/>
+                <Annotation Term="SAP__common.Heading" String="Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="SD Document Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/StatisticsCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Statistics Currency"/>
+                <Annotation Term="SAP__common.Heading" String="Curr."/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallIntcoBillingStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Intco Billing Status"/>
+                <Annotation Term="SAP__common.Heading" String="IBS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Intercompany Billing Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallDeliveryProcessStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Overall Status"/>
+                <Annotation Term="SAP__common.Heading" String="OS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Overall Processing Status (Header/All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TotalBlockStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Overall Block Status"/>
+                <Annotation Term="SAP__common.Heading" String="OB"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Overall Block Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallDelivConfStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Conf. Sts"/>
+                <Annotation Term="SAP__common.Heading" String="CS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Confirmation Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TransportationPlanningStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Transp. Plng Sts"/>
+                <Annotation Term="SAP__common.Heading" String="TS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Transportation Planning Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallPutawayConfStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Pick Confirmation"/>
+                <Annotation Term="SAP__common.Heading" String="C"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Status of Pick Confirmation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallPutawayStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Picking Status"/>
+                <Annotation Term="SAP__common.Heading" String="OPS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Picking Status/Putaway Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallPackingStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Packing Status"/>
+                <Annotation Term="SAP__common.Heading" String="PS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Packing Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallWarehouseActivityStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="WM Activity Status"/>
+                <Annotation Term="SAP__common.Heading" String="WM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Status of Warehouse Management Activities (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/DistrStatusByDecentralizedWrhs">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Status Decent. Whse"/>
+                <Annotation Term="SAP__common.Heading" String="S"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Status (Decentralized Warehouse Processing)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallGoodsMovementStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Goods Movement Sts"/>
+                <Annotation Term="SAP__common.Heading" String="GM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Goods Movement Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallDelivReltdBillgStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Deliv.Rel. Billg Sts"/>
+                <Annotation Term="SAP__common.Heading" String="BS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery-Related Billing Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OverallProofOfDeliveryStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="POD Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="POD Status on Header Level"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HdrGeneralIncompletionStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Overall Header"/>
+                <Annotation Term="SAP__common.Heading" String="OH"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Incompletion Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderDelivIncompletionStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery – Header"/>
+                <Annotation Term="SAP__common.Heading" String="DIH"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Incompletion Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderPutawayIncompltnStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Picking/Putaway–Hdr"/>
+                <Annotation Term="SAP__common.Heading" String="P–H"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Picking/Putaway Incompletion Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderPackingIncompletionSts">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Packing – Header"/>
+                <Annotation Term="SAP__common.Heading" String="PH"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Packing Incompletion Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HdrGoodsMvtIncompletionStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="GoodsMvt–Header"/>
+                <Annotation Term="SAP__common.Heading" String="GM–H"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Goods Movement Incompletion Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/HeaderBillgIncompletionStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Billing – Header"/>
+                <Annotation Term="SAP__common.Heading" String="BIS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Billing Incompletion Status (Header)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OvrlItmDelivIncompletionSts">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery – All Items"/>
+                <Annotation Term="SAP__common.Heading" String="DI"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Incompletion Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OvrlItmGdsMvtIncompletionSts">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="GdsMvt–All Itms"/>
+                <Annotation Term="SAP__common.Heading" String="GMI"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Goods Movement Incompletion Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OvrlItmGeneralIncompletionSts">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="All Items"/>
+                <Annotation Term="SAP__common.Heading" String="AI"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Incompletion Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OvrlItmPackingIncompletionSts">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Packing – All Items"/>
+                <Annotation Term="SAP__common.Heading" String="PAI"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Packing Incompletion Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/OvrlItmPutawayIncompletionSts">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Picking/Ptwy – Items"/>
+                <Annotation Term="SAP__common.Heading" String="PAI"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Picking/Putaway Incompletion Status (All Items)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/TotalCreditCheckStatus">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Credit Status"/>
+                <Annotation Term="SAP__common.Heading" String="OvCS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Overall Status of Credit Checks"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__FieldControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.printNote(SAP__self.ZC_TMP_InboundDeliveryType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/printNote"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostGoodsMovement(SAP__self.ZC_TMP_InboundDeliveryType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/PostGoodsMovement"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/DeliveryDate">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Date"/>
+                <Annotation Term="SAP__common.Heading" String="Deliv.Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/_ReferencePurgDocumentItem">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType">
+                <Annotation Term="SAP__common.Label" String="Inbound delivery"/>
+                <Annotation Term="Communication.Contact">
+                    <Record/>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_TMP_InboundDelivery">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__FieldControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__FieldControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__FieldControl/ActualGoodsMovementDate">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__FieldControl/ActualGoodsMovementTime">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__FieldControl/DeliveryDate">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__FieldControl/DeliveryTime">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__FieldControl/ShippingType">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__OperationControl/PostGoodsMovement">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryType/__OperationControl/printNote">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryControl/ActualGoodsMovementDate">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryControl/ActualGoodsMovementTime">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryControl/DeliveryDate">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryControl/DeliveryTime">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryControl/ShippingType">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryOperationControl/PostGoodsMovement">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_TMP_InboundDeliveryOperationControl/printNote">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_TMP_NOTE_PRINT/FileName">
+                <Annotation Term="SAP__common.Label" String="File names"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Document Service: File names"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_TMP_NOTE_PRINT/MimeType">
+                <Annotation Term="SAP__common.Label" String="MIME type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Document Service: MIME type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_InbDelivCrteFrmPurgDocItemP/ReferenceSDDocumentItem">
+                <Annotation Term="SAP__common.Label" String="Reference Item"/>
+                <Annotation Term="SAP__common.Heading" String="RefItm"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Item number of the reference item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ReferencePurgDocumentItem/ReferenceSDDocument">
+                <Annotation Term="SAP__common.Label" String="Reference Document"/>
+                <Annotation Term="SAP__common.Heading" String="Ref. Doc."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Number of Reference Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ReferencePurgDocumentItem/ReferenceSDDocumentItem">
+                <Annotation Term="SAP__common.Label" String="Reference Item"/>
+                <Annotation Term="SAP__common.Heading" String="RefItm"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Item number of the reference item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/Supplier">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Supplier"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Account Number of Supplier"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/DeliveryTime">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Time of delivery"/>
+                <Annotation Term="SAP__common.Heading" String="At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/DeliveryDocumentBySupplier">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="External Delivery ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="External Identification of Delivery Note"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/MeansOfTransportType">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Means-of-Trans. Type"/>
+                <Annotation Term="SAP__common.Heading" String="TrpT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Means-of-Transport Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CreateDlvFrmPurchasingDocument(Collection(SAP__self.ZC_TMP_InboundDeliveryType))/MeansOfTransport">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Means of Trans. ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Means of Transport ID"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

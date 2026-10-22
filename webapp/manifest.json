@@ -1,0 +1,178 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "ae.emsteel.asas.noteprint",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.22.0",
+      "toolsId": "88bbca94-1c52-4a1d-9dec-ad073ce31507"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/ztmp_ui_inbounddelivery_o4/srvd/sap/ztmp_ui_inbounddelivery/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.52",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ae.emsteel.asas.noteprint.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_TMP_InboundDeliveryList",
+          "target": "ZC_TMP_InboundDeliveryList"
+        },
+        {
+          "pattern": "ZC_TMP_InboundDelivery({key}):?query:",
+          "name": "ZC_TMP_InboundDeliveryObjectPage",
+          "target": "ZC_TMP_InboundDeliveryObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_TMP_InboundDeliveryList": {
+          "type": "Component",
+          "id": "ZC_TMP_InboundDeliveryList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_TMP_InboundDelivery",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_TMP_InboundDelivery": {
+                  "detail": {
+                    "route": "ZC_TMP_InboundDeliveryObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "Notes": {
+                      "press": "ae.emsteel.asas.noteprint.ext.controller.Notes.Print",
+                      "visible": true,
+                      "enabled": "ae.emsteel.asas.noteprint.ext.controller.Notes.isEnabled",
+                      "requiresSelection": true,
+                      "text": "{@i18n>deliveryNote}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_TMP_InboundDeliveryObjectPage": {
+          "type": "Component",
+          "id": "ZC_TMP_InboundDeliveryObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZC_TMP_InboundDelivery",
+              "content": {
+                "header": {
+                  "actions": {
+                    "Note": {
+                      "press": "ae.emsteel.asas.noteprint.ext.controller.Note.Print",
+                      "visible": true,
+                      "enabled": "ae.emsteel.asas.noteprint.ext.controller.Note.isEnabled",
+                      "requiresSelection": false,
+                      "text": "{@i18n>deliveryNote}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

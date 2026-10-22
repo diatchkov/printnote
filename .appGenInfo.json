@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Oct 21 2026 00:15:53 GMT+0300 (Moscow Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhemmedvci.sap.emsteel.com:44300/sap/opu/odata4/sap/ztmp_ui_inbounddelivery_o4/srvd/sap/ztmp_ui_inbounddelivery/0001/",
+    "appName": "noteprint",
+    "appTitle": "Delivery note print",
+    "appDescription": "An SAP Fiori application.",
+    "appNamespace": "ae.emsteel.asas",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.120.52",
+    "enableEslint": true,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.22.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZC_TMP_InboundDelivery"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}
